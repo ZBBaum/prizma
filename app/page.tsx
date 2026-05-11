@@ -30,7 +30,7 @@ export default function Home() {
         <div className="relative z-10 max-w-5xl w-full mx-auto px-6 md:px-12 py-32">
           <Logo height={36} />
           <h1 className="mt-10 text-white text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
-            The impossible,<br />delivered instantly.
+            Possible. Proven. Prizma.
           </h1>
           <p className="mt-6 text-white/50 text-base md:text-lg font-semibold max-w-md leading-relaxed">
             Prizma helps organizations move from AI curiosity to AI advantage — through strategy, engineering, and education.
