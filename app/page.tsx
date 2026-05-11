@@ -30,7 +30,7 @@ export default function Home() {
         <div className="relative z-10 max-w-5xl w-full mx-auto px-6 md:px-12 py-32">
           <Logo height={52} src="/PrizmaLogoLight1.png" />
           <h1 className="mt-10 text-black text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
-            Enterprise software.<br />A fraction of the cost.<br />A fraction of the time.
+            Enterprise software made in a fraction of the time, for a fraction of the cost.
           </h1>
           <p className="mt-6 text-black/50 text-base md:text-lg font-semibold max-w-md leading-relaxed">
             Prizma helps organizations move from AI curiosity to AI advantage — through strategy, engineering, and education.
