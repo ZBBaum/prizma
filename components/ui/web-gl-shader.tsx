@@ -55,7 +55,9 @@ export function WebGLShader() {
         float g = clamp(0.05 / abs(p.y + sin((gx + time) * xScale) * yScale), 0.0, 1.0);
         float b = clamp(0.05 / abs(p.y + sin((bx + time) * xScale) * yScale), 0.0, 1.0);
 
-        gl_FragColor = vec4(1.0 - r, 1.0 - g, 1.0 - b, 1.0);
+        // Subtractive: each channel removes the other two, giving original RGB colors on white
+        vec3 color = clamp(vec3(1.0 - g - b, 1.0 - r - b, 1.0 - r - g), 0.0, 1.0);
+        gl_FragColor = vec4(color, 1.0);
       }
     `
 

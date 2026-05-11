@@ -28,7 +28,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center">
         <WebGLShader />
         <div className="relative z-10 max-w-5xl w-full mx-auto px-6 md:px-12 py-32">
-          <Logo height={36} src="/PrizmaLogoDark1.png" />
+          <Logo height={52} src="/PrizmaLogoLight1.png" />
           <h1 className="mt-10 text-black text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
             Possible. Proven. Prizma.
           </h1>
