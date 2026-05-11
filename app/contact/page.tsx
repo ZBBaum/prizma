@@ -16,26 +16,26 @@ export default function Contact() {
   return (
     <>
       <section className="max-w-5xl mx-auto px-6 pt-28 pb-20">
-        <p className="text-sm font-bold tracking-widest uppercase text-white/30 mb-6">
+        <p className="text-sm font-bold tracking-widest uppercase text-black/40 mb-6">
           Contact
         </p>
-        <h1 className="text-5xl font-black leading-tight tracking-tight max-w-xl text-white">
+        <h1 className="text-5xl font-black leading-tight tracking-tight max-w-xl text-black">
           Let's figure out what's possible.
         </h1>
-        <p className="mt-6 text-lg font-semibold text-white/50 max-w-md leading-relaxed">
+        <p className="mt-6 text-lg font-semibold text-black/50 max-w-md leading-relaxed">
           Tell us a bit about what you're working on. We respond within one business day.
         </p>
       </section>
 
       <div className="max-w-5xl mx-auto px-6">
-        <div className="border-t border-white/10" />
+        <div className="border-t border-black/10" />
       </div>
 
       <section className="max-w-5xl mx-auto px-6 py-20">
         {submitted ? (
           <div className="max-w-md">
-            <h2 className="text-3xl font-black mb-4 text-white">Got it.</h2>
-            <p className="text-base font-semibold text-white/50 leading-relaxed">
+            <h2 className="text-3xl font-black mb-4 text-black">Got it.</h2>
+            <p className="text-base font-semibold text-black/50 leading-relaxed">
               Thanks for reaching out. We'll be in touch within one business day.
             </p>
           </div>
@@ -43,31 +43,31 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="max-w-lg space-y-8">
             <div className="grid grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold tracking-widest uppercase text-white/30">
+                <label className="text-xs font-bold tracking-widest uppercase text-black/40">
                   Name
                 </label>
                 <input
                   type="text"
                   required
                   placeholder="Your name"
-                  className="border border-white/15 px-4 py-3 text-sm font-semibold text-white placeholder:text-white/25 focus:outline-none focus:border-white/50 transition-colors bg-transparent"
+                  className="border border-black/15 px-4 py-3 text-sm font-semibold text-black placeholder:text-black/25 focus:outline-none focus:border-black transition-colors bg-white"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-bold tracking-widest uppercase text-white/30">
+                <label className="text-xs font-bold tracking-widest uppercase text-black/40">
                   Email
                 </label>
                 <input
                   type="email"
                   required
                   placeholder="you@company.com"
-                  className="border border-white/15 px-4 py-3 text-sm font-semibold text-white placeholder:text-white/25 focus:outline-none focus:border-white/50 transition-colors bg-transparent"
+                  className="border border-black/15 px-4 py-3 text-sm font-semibold text-black placeholder:text-black/25 focus:outline-none focus:border-black transition-colors bg-white"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold tracking-widest uppercase text-white/30">
+              <label className="text-xs font-bold tracking-widest uppercase text-black/40">
                 Topic
               </label>
               <div className="flex gap-2 flex-wrap">
@@ -78,8 +78,8 @@ export default function Contact() {
                     onClick={() => setTopic(t)}
                     className={`px-4 py-2 text-sm font-bold border transition-colors ${
                       topic === t
-                        ? 'bg-white text-black border-white'
-                        : 'bg-transparent text-white border-white/15 hover:border-white/50'
+                        ? 'bg-black text-white border-black'
+                        : 'bg-white text-black border-black/15 hover:border-black'
                     }`}
                   >
                     {t}
@@ -89,20 +89,20 @@ export default function Contact() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold tracking-widest uppercase text-white/30">
+              <label className="text-xs font-bold tracking-widest uppercase text-black/40">
                 Message
               </label>
               <textarea
                 required
                 rows={5}
                 placeholder="What are you trying to build or solve?"
-                className="border border-white/15 px-4 py-3 text-sm font-semibold text-white placeholder:text-white/25 focus:outline-none focus:border-white/50 transition-colors resize-none bg-transparent"
+                className="border border-black/15 px-4 py-3 text-sm font-semibold text-black placeholder:text-black/25 focus:outline-none focus:border-black transition-colors resize-none bg-white"
               />
             </div>
 
             <button
               type="submit"
-              className="bg-white text-black text-sm font-bold px-6 py-3 hover:bg-white/80 transition-colors"
+              className="bg-black text-white text-sm font-bold px-6 py-3 hover:bg-black/80 transition-colors"
             >
               Send message
             </button>

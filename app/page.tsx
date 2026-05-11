@@ -24,11 +24,11 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Shader hero — left-aligned */}
+      {/* Shader hero — dark canvas, white text, light logo variant */}
       <section className="relative min-h-screen flex items-center">
         <WebGLShader />
         <div className="relative z-10 max-w-5xl w-full mx-auto px-6 md:px-12 py-32">
-          <Logo height={36} />
+          <Logo height={36} src="/PrizmaLogoLight1.png" />
           <h1 className="mt-10 text-white text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
             Possible. Proven. Prizma.
           </h1>
@@ -52,21 +52,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Opaque dark sections cover the fixed shader on scroll */}
-      <div className="relative z-10 bg-black">
+      {/* Light sections */}
+      <div className="relative z-10 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="border-t border-white/10" />
+          <div className="border-t border-black/10" />
         </div>
 
         <section className="max-w-5xl mx-auto px-6 py-24">
-          <h2 className="text-xs font-bold tracking-widest uppercase text-white/30 mb-12">
+          <h2 className="text-xs font-bold tracking-widest uppercase text-black/40 mb-12">
             What we do
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {services.map((s) => (
               <div key={s.title}>
-                <h3 className="text-xl font-black mb-3 text-white">{s.title}</h3>
-                <p className="text-sm font-semibold text-white/50 leading-relaxed">
+                <h3 className="text-xl font-black mb-3 text-black">{s.title}</h3>
+                <p className="text-sm font-semibold text-black/50 leading-relaxed">
                   {s.description}
                 </p>
               </div>
@@ -75,19 +75,19 @@ export default function Home() {
         </section>
 
         <div className="max-w-5xl mx-auto px-6">
-          <div className="border-t border-white/10" />
+          <div className="border-t border-black/10" />
         </div>
 
         <section className="max-w-5xl mx-auto px-6 py-24">
-          <h2 className="text-4xl font-black tracking-tight max-w-md text-white">
+          <h2 className="text-4xl font-black tracking-tight max-w-md text-black">
             Ready to move faster?
           </h2>
-          <p className="mt-4 text-base font-semibold text-white/50 max-w-sm leading-relaxed">
+          <p className="mt-4 text-base font-semibold text-black/50 max-w-sm leading-relaxed">
             Tell us what you're trying to build. We'll tell you if we can help.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-white text-black text-sm font-bold px-6 py-3 hover:bg-white/80 transition-colors"
+            className="mt-8 inline-block bg-black text-white text-sm font-bold px-6 py-3 hover:bg-black/80 transition-colors"
           >
             Get in touch
           </Link>
