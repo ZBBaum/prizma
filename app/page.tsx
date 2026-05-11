@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import Logo from '@/components/Logo'
 import { WebGLShader } from '@/components/ui/web-gl-shader'
-import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
 const services = [
   {
@@ -25,23 +23,26 @@ export default function Home() {
   return (
     <>
       {/* Shader hero — dark canvas, white text, light logo variant */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex flex-col">
         <WebGLShader />
-        <div className="relative z-10 max-w-5xl w-full mx-auto px-6 py-32">
-          <Logo height={160} src="/PrizmaLogoLight1.png" />
-          <blockquote className="mt-10 text-black/70 text-xl md:text-2xl font-semibold italic max-w-xl leading-relaxed border-l-2 border-black/20 pl-5">
-            "Enterprise software made in a fraction of the time."
-          </blockquote>
-          <p className="mt-6 text-black/50 text-base md:text-lg font-semibold max-w-md leading-relaxed">
-            Prizma helps organizations move from AI curiosity to AI advantage — through strategy, engineering, and education.
+        {/* Logo — upper center */}
+        <div className="relative z-10 flex justify-center pt-32">
+          <img
+            src="/PrizmaLogoLight1.png"
+            alt="Prizma"
+            style={{ width: '500px', height: 'auto' }}
+          />
+        </div>
+        {/* Bottom — tagline + button */}
+        <div className="relative z-10 mt-auto pb-16 flex flex-col items-center gap-6">
+          <p className="text-black/50 text-base font-normal text-center">
+            Enterprise software made in a fraction of the time.
           </p>
-          <div className="mt-8">
-            <Link href="/contact" className="inline-flex">
-              <LiquidButton size="xl" className="text-black border border-black/20 rounded-full">
-                Start a conversation
-              </LiquidButton>
-            </Link>
-          </div>
+          <Link href="/contact" className="inline-flex">
+            <button className="bg-black text-white text-sm font-bold px-8 py-3 hover:bg-black/80 transition-colors">
+              Start a conversation
+            </button>
+          </Link>
         </div>
       </section>
 
