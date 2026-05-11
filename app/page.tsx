@@ -28,11 +28,11 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center">
         <WebGLShader />
         <div className="relative z-10 max-w-5xl w-full mx-auto px-6 md:px-12 py-32">
-          <Logo height={36} src="/PrizmaLogoLight1.png" />
-          <h1 className="mt-10 text-white text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
+          <Logo height={36} src="/PrizmaLogoDark1.png" />
+          <h1 className="mt-10 text-black text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
             Possible. Proven. Prizma.
           </h1>
-          <p className="mt-6 text-white/50 text-base md:text-lg font-semibold max-w-md leading-relaxed">
+          <p className="mt-6 text-black/50 text-base md:text-lg font-semibold max-w-md leading-relaxed">
             Prizma helps organizations move from AI curiosity to AI advantage — through strategy, engineering, and education.
           </p>
           <div className="mt-5 flex items-center gap-1.5">
@@ -44,7 +44,7 @@ export default function Home() {
           </div>
           <div className="mt-8">
             <Link href="/contact" className="inline-flex">
-              <LiquidButton size="xl" className="text-white border border-white/20 rounded-full">
+              <LiquidButton size="xl" className="text-black border border-black/20 rounded-full">
                 Start a conversation
               </LiquidButton>
             </Link>
