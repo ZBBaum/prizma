@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Logo from '@/components/Logo'
 import { WebGLShader } from '@/components/ui/web-gl-shader'
 import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
@@ -23,31 +24,30 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Shader hero — canvas is fixed at -z-10, transparent section shows it through */}
-      <section className="relative min-h-screen flex items-center justify-center px-4">
+      {/* Shader hero — left-aligned */}
+      <section className="relative min-h-screen flex items-center">
         <WebGLShader />
-        <div className="relative z-10 border border-white/10 p-2 w-full max-w-3xl">
-          <div className="border border-white/10 py-14 px-8 overflow-hidden">
-            <h1 className="text-white text-center text-6xl font-black tracking-tight leading-[1.05] md:text-[clamp(2.5rem,8vw,5rem)]">
-              The impossible,<br />delivered instantly.
-            </h1>
-            <p className="text-white/50 text-center text-sm md:text-base mt-5 max-w-md mx-auto leading-relaxed font-semibold">
-              Prizma helps organizations move from AI curiosity to AI advantage — through strategy, engineering, and education.
-            </p>
-            <div className="my-7 flex items-center justify-center gap-1.5">
-              <span className="relative flex h-3 w-3 items-center justify-center">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-              </span>
-              <p className="text-xs text-green-500 font-semibold">Available for New Projects</p>
-            </div>
-            <div className="flex justify-center">
-              <Link href="/contact" className="inline-flex">
-                <LiquidButton size="xl" className="text-white border border-white/20 rounded-full">
-                  Start a conversation
-                </LiquidButton>
-              </Link>
-            </div>
+        <div className="relative z-10 max-w-5xl w-full mx-auto px-6 md:px-12 py-32">
+          <Logo height={36} />
+          <h1 className="mt-10 text-white text-5xl md:text-7xl font-black tracking-tight leading-[1.05] max-w-2xl">
+            The impossible,<br />delivered instantly.
+          </h1>
+          <p className="mt-6 text-white/50 text-base md:text-lg font-semibold max-w-md leading-relaxed">
+            Prizma helps organizations move from AI curiosity to AI advantage — through strategy, engineering, and education.
+          </p>
+          <div className="mt-5 flex items-center gap-1.5">
+            <span className="relative flex h-3 w-3 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+            </span>
+            <p className="text-xs text-green-500 font-semibold">Available for New Projects</p>
+          </div>
+          <div className="mt-8">
+            <Link href="/contact" className="inline-flex">
+              <LiquidButton size="xl" className="text-white border border-white/20 rounded-full">
+                Start a conversation
+              </LiquidButton>
+            </Link>
           </div>
         </div>
       </section>
