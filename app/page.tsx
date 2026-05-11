@@ -23,7 +23,7 @@ const services = [
 export default function Home() {
   return (
     <>
-      {/* Shader hero */}
+      {/* Shader hero — canvas is fixed at -z-10, transparent section shows it through */}
       <section className="relative min-h-screen flex items-center justify-center px-4">
         <WebGLShader />
         <div className="relative z-10 border border-white/10 p-2 w-full max-w-3xl">
@@ -52,23 +52,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* White sections sit on top of the fixed shader */}
-      <div className="relative z-10 bg-white">
-        {/* Divider */}
+      {/* Opaque dark sections cover the fixed shader on scroll */}
+      <div className="relative z-10 bg-black">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="border-t border-black/10" />
+          <div className="border-t border-white/10" />
         </div>
 
-        {/* Services */}
         <section className="max-w-5xl mx-auto px-6 py-24">
-          <h2 className="text-xs font-bold tracking-widest uppercase text-black/40 mb-12">
+          <h2 className="text-xs font-bold tracking-widest uppercase text-white/30 mb-12">
             What we do
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {services.map((s) => (
               <div key={s.title}>
-                <h3 className="text-xl font-black mb-3">{s.title}</h3>
-                <p className="text-sm font-semibold text-black/50 leading-relaxed">
+                <h3 className="text-xl font-black mb-3 text-white">{s.title}</h3>
+                <p className="text-sm font-semibold text-white/50 leading-relaxed">
                   {s.description}
                 </p>
               </div>
@@ -76,22 +74,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Divider */}
         <div className="max-w-5xl mx-auto px-6">
-          <div className="border-t border-black/10" />
+          <div className="border-t border-white/10" />
         </div>
 
-        {/* CTA */}
         <section className="max-w-5xl mx-auto px-6 py-24">
-          <h2 className="text-4xl font-black tracking-tight max-w-md">
+          <h2 className="text-4xl font-black tracking-tight max-w-md text-white">
             Ready to move faster?
           </h2>
-          <p className="mt-4 text-base font-semibold text-black/50 max-w-sm leading-relaxed">
+          <p className="mt-4 text-base font-semibold text-white/50 max-w-sm leading-relaxed">
             Tell us what you're trying to build. We'll tell you if we can help.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-black text-white text-sm font-bold px-6 py-3 hover:bg-black/80 transition-colors"
+            className="mt-8 inline-block bg-white text-black text-sm font-bold px-6 py-3 hover:bg-white/80 transition-colors"
           >
             Get in touch
           </Link>
