@@ -1,11 +1,66 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
+/* Color tokens for inline styles — switch per mode */
+:root {
+  --prizma-violet: #7C3AED;
+  --prizma-blue:   #2563EB;
+  --prizma-green:  #059669;
+  --prizma-yellow: #D97706;
+  --prizma-orange: #EA580C;
+  --prizma-red:    #E11D48;
+}
+
+.dark {
+  --prizma-violet: #A78BFA;
+  --prizma-blue:   #60A5FA;
+  --prizma-green:  #34D399;
+  --prizma-yellow: #FCD34D;
+  --prizma-orange: #FB923C;
+  --prizma-red:    #FB7185;
+}
+
+@theme {
+  --color-prizma-violet: #7C3AED;
+  --color-prizma-blue:   #2563EB;
+  --color-prizma-green:  #059669;
+  --color-prizma-yellow: #D97706;
+  --color-prizma-orange: #EA580C;
+  --color-prizma-red:    #E11D48;
+}
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
   background: #ffffff;
   color: #000000;
   -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
+@keyframes prismSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
