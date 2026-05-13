@@ -113,53 +113,35 @@ export default function Home() {
       >
         <WebGLShader />
 
-        {/* Logo + headline + CTA — sits at the top */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-10 md:pt-14">
+        {/* Logo + headline + CTA — compact at top */}
+        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-6 md:pt-8">
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
-            className="block dark:hidden mb-6"
-            style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
+            className="block dark:hidden mb-4"
+            style={{ width: 'min(200px, 44vw)', height: 'auto', objectFit: 'contain' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
-            className="hidden dark:block mb-6"
-            style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
+            className="hidden dark:block mb-4"
+            style={{ width: 'min(200px, 44vw)', height: 'auto', objectFit: 'contain' }}
           />
           <h1
-            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-3"
-            style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)', maxWidth: '720px' }}
+            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-2"
+            style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', maxWidth: '640px' }}
           >
             Enterprise Software. Without the wait.
           </h1>
-          <div style={{ height: '2px', width: '64px', background: SPECTRUM, borderRadius: '1px', marginBottom: '20px' }} />
-          <p className="text-base font-medium text-[#444444] dark:text-[#bbbbbb] max-w-lg mb-8">
-            We build custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
+          <div style={{ height: '1.5px', width: '48px', background: SPECTRUM, borderRadius: '1px', marginBottom: '14px' }} />
+          <p className="text-sm font-medium text-[#444444] dark:text-[#bbbbbb] max-w-md mb-5">
+            Custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
           </p>
           <Link href="/contact">
-            <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] cursor-pointer">
+            <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-7 py-2.5 rounded-full hover:bg-[#6D28D9] cursor-pointer">
               Tell us what you need
             </button>
           </Link>
-        </div>
-
-        {/* Scroll indicator — pushed to bottom */}
-        <div className="relative z-10 mt-auto pb-8 flex flex-col items-center gap-1 select-none">
-          <span className="text-[10px] font-bold tracking-widest uppercase text-black/30 dark:text-white/30">
-            Scroll
-          </span>
-          <svg
-            className="scroll-indicator text-black/30 dark:text-white/30"
-            width="14"
-            height="9"
-            viewBox="0 0 14 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
         </div>
       </section>
 
