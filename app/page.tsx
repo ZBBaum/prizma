@@ -114,18 +114,18 @@ export default function Home() {
         <WebGLShader />
 
         {/* Logo + headline + CTA */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: '12vh' }}>
+        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: '2vh' }}>
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
-            className="block dark:hidden mb-12"
-            style={{ width: 'min(320px, 68vw)', height: 'auto', objectFit: 'contain' }}
+            className="block dark:hidden"
+            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginBottom: '15px' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
-            className="hidden dark:block mb-12"
-            style={{ width: 'min(320px, 68vw)', height: 'auto', objectFit: 'contain' }}
+            className="hidden dark:block"
+            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginBottom: '15px' }}
           />
           <h1
             className="font-bold text-black dark:text-white leading-tight tracking-tight mb-4"
@@ -142,6 +142,7 @@ export default function Home() {
             </button>
           </Link>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-36 pointer-events-none z-10 bg-gradient-to-b from-transparent to-white dark:to-[#0a0a0a]" />
       </section>
 
       <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
