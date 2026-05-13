@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { ThemeToggle } from './ui/curtain-theme-toggle'
 
+const SPECTRUM = 'linear-gradient(90deg, #7C3AED, #2563EB, #059669, #D97706, #EA580C, #E11D48)'
+
 export default function Nav() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0a0a0a] border-b border-black/10 dark:border-white/10 transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
       <nav className="max-w-5xl mx-auto px-6 h-24 flex items-center justify-between">
         <Link href="/" className="flex items-center no-underline">
           <img
@@ -22,25 +24,26 @@ export default function Nav() {
         <div className="flex items-center gap-8">
           <Link
             href="/about"
-            className="text-base font-bold text-black/50 dark:text-white/50 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+            className="text-base font-bold text-black/50 dark:text-white/50 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors"
           >
             About
           </Link>
           <Link
             href="/built"
-            className="text-base font-bold text-black/50 dark:text-white/50 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+            className="text-base font-bold text-black/50 dark:text-white/50 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors"
           >
             Work
           </Link>
           <Link
             href="/contact"
-            className="text-base font-bold bg-black text-white dark:bg-white dark:text-black px-5 py-2 hover:bg-violet-600 dark:hover:bg-violet-400 dark:hover:text-white transition-colors"
+            className="text-sm font-bold bg-[#7C3AED] text-white px-5 py-2 rounded-full hover:bg-[#6D28D9] transition-colors"
           >
             Contact
           </Link>
           <ThemeToggle variant="icon" buttonSize={34} />
         </div>
       </nav>
+      <div style={{ height: '1px', background: SPECTRUM, opacity: 0.5 }} />
     </header>
   )
 }
