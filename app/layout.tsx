@@ -36,6 +36,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999, background: 'red', opacity: 0.2, pointerEvents: 'none' }} />
         <ScrollToTop />
         <Nav />
         <main className="pt-24">{children}</main>
