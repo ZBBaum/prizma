@@ -113,32 +113,31 @@ export default function Home() {
       >
         <WebGLShader />
 
-        {/* Logo + headline + CTA — compact at top */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: 'calc(24px + 20px)' }}>
+        {/* Logo + headline + CTA */}
+        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: '12vh' }}>
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
-            className="block dark:hidden mb-4"
-            style={{ width: 'min(400px, 80vw)', height: 'auto', objectFit: 'contain' }}
+            className="block dark:hidden mb-12"
+            style={{ width: 'min(320px, 68vw)', height: 'auto', objectFit: 'contain' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
-            className="hidden dark:block mb-4"
-            style={{ width: 'min(400px, 80vw)', height: 'auto', objectFit: 'contain' }}
+            className="hidden dark:block mb-12"
+            style={{ width: 'min(320px, 68vw)', height: 'auto', objectFit: 'contain' }}
           />
           <h1
-            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-2"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 4.4rem)', maxWidth: '720px' }}
+            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-4"
+            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3.5rem)', whiteSpace: 'nowrap' }}
           >
             Enterprise Software. Without the wait.
           </h1>
-          <div style={{ height: '1.5px', width: '48px', background: SPECTRUM, borderRadius: '1px', marginBottom: '14px' }} />
-          <p className="text-base font-medium text-[#444444] dark:text-[#bbbbbb] max-w-lg mb-5">
-            Custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
+          <p className="text-base text-[#444444] dark:text-[#bbbbbb] max-w-md mb-6">
+            We build custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
           </p>
           <Link href="/contact">
-            <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-7 py-2.5 rounded-full hover:bg-[#6D28D9] cursor-pointer">
+            <button className="bg-black dark:bg-white text-white dark:text-black text-sm font-bold px-8 py-3 rounded-full hover:bg-black/80 dark:hover:bg-gray-100 transition-colors cursor-pointer">
               Tell us what you need
             </button>
           </Link>
