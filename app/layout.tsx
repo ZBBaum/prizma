@@ -4,7 +4,6 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
-import NoiseOverlay from '@/components/NoiseOverlay'
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -37,7 +36,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <NoiseOverlay />
         <ScrollToTop />
         <Nav />
         <main className="pt-24">{children}</main>

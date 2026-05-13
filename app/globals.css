@@ -39,14 +39,13 @@ html {
 }
 
 body {
-  background: #F9F8F5;
+  background: #ffffff;
   color: #000000;
   -webkit-font-smoothing: antialiased;
-  position: relative;
 }
 
 .dark body {
-  background: #07070F;
+  background: #0a0a0a;
   color: #f0f0f0;
 }
 
