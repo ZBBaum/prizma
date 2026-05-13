@@ -91,11 +91,11 @@ export default function Home() {
     <>
       {/* Hero */}
       <section
-        className="relative flex flex-col items-center justify-center"
+        className="relative flex flex-col items-center justify-start"
         style={{ minHeight: 'calc(100vh - 96px)', animation: 'heroReveal 0.7s ease-out forwards' }}
       >
         <WebGLShader />
-        <div className="relative z-10 flex flex-col items-center px-6 text-center">
+        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-14 md:pt-20">
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
