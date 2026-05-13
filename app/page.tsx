@@ -16,16 +16,19 @@ const whatWeDo = [
     title: 'Strategy',
     description: 'We map your business to the AI landscape, identifying where automation creates leverage and where human judgment stays essential.',
     accent: '#7C3AED',
+    glow: 'rgba(124,58,237,0.14)',
   },
   {
     title: 'Build',
     description: 'From prototypes to production systems, we ship AI products that actually work: reliable, fast, and integrated into how you operate.',
     accent: '#2563EB',
+    glow: 'rgba(37,99,235,0.14)',
   },
   {
     title: 'Train',
     description: 'We embed with your team, building AI fluency from the ground up so capability stays inside your organization.',
     accent: '#059669',
+    glow: 'rgba(5,150,105,0.14)',
   },
 ]
 
@@ -34,16 +37,19 @@ const whatWeBuild = [
     title: 'Web Design',
     description: 'Beautiful, fast websites built to convert — designed with purpose, engineered to perform.',
     accent: '#D97706',
+    glow: 'rgba(217,119,6,0.14)',
   },
   {
     title: 'AI Platforms',
     description: 'Custom enterprise software built in days using cutting-edge AI.',
     accent: '#EA580C',
+    glow: 'rgba(234,88,12,0.14)',
   },
   {
     title: 'Data Infrastructure',
     description: 'Pipelines, dashboards, and intelligence layers that give your organization clarity.',
     accent: '#E11D48',
+    glow: 'rgba(225,29,72,0.14)',
   },
 ]
 
@@ -86,27 +92,40 @@ function SpectrumDivider({ opacity = 0.35 }: { opacity?: number }) {
   return <div style={{ height: '1px', background: SPECTRUM, opacity }} />
 }
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2 mb-8">
+      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: SPECTRUM, flexShrink: 0 }} />
+      <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999]">
+        {children}
+      </h2>
+    </div>
+  )
+}
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section
-        className="relative flex flex-col items-center justify-start"
+        className="relative flex flex-col"
         style={{ minHeight: 'calc(100vh - 96px)', animation: 'heroReveal 0.7s ease-out forwards' }}
       >
         <WebGLShader />
-        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-14 md:pt-20">
+
+        {/* Logo + headline + CTA — sits at the top */}
+        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-10 md:pt-14">
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
             className="block dark:hidden mb-6"
-            style={{ width: 'min(300px, 68vw)', height: 'auto', objectFit: 'contain' }}
+            style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
             className="hidden dark:block mb-6"
-            style={{ width: 'min(300px, 68vw)', height: 'auto', objectFit: 'contain' }}
+            style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
           />
           <h1
             className="font-bold text-black dark:text-white leading-tight tracking-tight mb-3"
@@ -114,23 +133,39 @@ export default function Home() {
           >
             Enterprise Software. Without the wait.
           </h1>
-          <div
-            style={{ height: '2px', width: '64px', background: SPECTRUM, borderRadius: '1px', marginBottom: '20px' }}
-          />
-          <p className="text-base font-medium text-[#333333] dark:text-[#cccccc] max-w-lg mb-8">
+          <div style={{ height: '2px', width: '64px', background: SPECTRUM, borderRadius: '1px', marginBottom: '20px' }} />
+          <p className="text-base font-medium text-[#444444] dark:text-[#bbbbbb] max-w-lg mb-8">
             We build custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
           </p>
           <Link href="/contact">
-            <button className="bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] transition-colors cursor-pointer">
+            <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] cursor-pointer">
               Tell us what you need
             </button>
           </Link>
+        </div>
+
+        {/* Scroll indicator — pushed to bottom */}
+        <div className="relative z-10 mt-auto pb-8 flex flex-col items-center gap-1 select-none">
+          <span className="text-[10px] font-bold tracking-widest uppercase text-black/30 dark:text-white/30">
+            Scroll
+          </span>
+          <svg
+            className="scroll-indicator text-black/30 dark:text-white/30"
+            width="14"
+            height="9"
+            viewBox="0 0 14 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
       </section>
 
       <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
 
-        {/* Spectrum bar between hero and stats */}
+        {/* Spectrum bar entering the content */}
         <div style={{ height: '2px', background: SPECTRUM }} />
 
         {/* Stats */}
@@ -138,7 +173,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 gap-6">
             {stats.map((s) => (
               <div key={s.number} className="flex flex-col items-center text-center">
-                <span className="text-3xl md:text-4xl font-bold text-black dark:text-white">{s.number}</span>
+                <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
                 <span className="text-xs font-medium text-[#555555] dark:text-[#999999] mt-1">{s.label}</span>
               </div>
             ))}
@@ -150,15 +185,16 @@ export default function Home() {
         {/* What we do */}
         <FadeIn>
           <section className="max-w-5xl mx-auto px-6 py-16">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999] mb-8">
-              What we do
-            </h2>
+            <SectionLabel>What we do</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {whatWeDo.map((s) => (
                 <div
                   key={s.title}
-                  className="prizma-card p-6 hover:-translate-y-1 transition-all duration-200"
-                  style={{ borderLeft: `2px solid ${s.accent}` }}
+                  className="prizma-card p-6 hover:-translate-y-1 transition-all duration-300"
+                  style={{
+                    borderLeft: `2px solid ${s.accent}`,
+                    '--card-glow': s.glow,
+                  } as React.CSSProperties}
                 >
                   <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{s.title}</h3>
                   <p className="text-sm text-[#444444] dark:text-[#aaaaaa] leading-relaxed">{s.description}</p>
@@ -173,9 +209,7 @@ export default function Home() {
         {/* How it works */}
         <FadeIn>
           <section className="max-w-5xl mx-auto px-6 py-16">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999] mb-8">
-              How it works
-            </h2>
+            <SectionLabel>How it works</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {steps.map((s) => (
                 <div key={s.num}>
@@ -198,15 +232,16 @@ export default function Home() {
         {/* What we build */}
         <FadeIn>
           <section className="max-w-5xl mx-auto px-6 py-16">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999] mb-8">
-              What we build
-            </h2>
+            <SectionLabel>What we build</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {whatWeBuild.map((s) => (
                 <div
                   key={s.title}
-                  className="prizma-card p-6 hover:-translate-y-1 transition-all duration-200"
-                  style={{ borderLeft: `2px solid ${s.accent}` }}
+                  className="prizma-card p-6 hover:-translate-y-1 transition-all duration-300"
+                  style={{
+                    borderLeft: `2px solid ${s.accent}`,
+                    '--card-glow': s.glow,
+                  } as React.CSSProperties}
                 >
                   <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{s.title}</h3>
                   <p className="text-sm text-[#444444] dark:text-[#aaaaaa] leading-relaxed">{s.description}</p>
@@ -223,10 +258,8 @@ export default function Home() {
           <RotatingPrism />
           <FadeIn>
             <section className="max-w-5xl mx-auto px-6 py-16 relative z-10">
-              <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999] mb-6">
-                About Prizma
-              </h2>
-              <p className="text-xl font-normal text-[#333333] dark:text-[#cccccc] leading-relaxed max-w-2xl">
+              <SectionLabel>About Prizma</SectionLabel>
+              <p className="text-xl text-[#333333] dark:text-[#cccccc] leading-relaxed max-w-2xl">
                 Prizma was built on a simple idea: great software should be fast to build and honest to price. We use AI to ship enterprise platforms in weeks, with a fixed quote upfront. Founded by Zack Baum.
               </p>
             </section>
@@ -238,9 +271,7 @@ export default function Home() {
         {/* FAQ */}
         <FadeIn>
           <section className="max-w-5xl mx-auto px-6 py-16">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999] mb-8">
-              FAQ
-            </h2>
+            <SectionLabel>FAQ</SectionLabel>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
               {faqs.map((faq) => (
                 <div key={faq.q} className="pl-4" style={{ borderLeft: `2px solid ${faq.accent}` }}>
@@ -253,7 +284,7 @@ export default function Home() {
         </FadeIn>
 
         {/* CTA */}
-        <div style={{ borderTop: '2px solid transparent', background: `${SPECTRUM} border-box` }}>
+        <div>
           <div style={{ height: '2px', background: SPECTRUM }} />
           <FadeIn>
             <section className="max-w-5xl mx-auto px-6 py-20">
@@ -267,7 +298,7 @@ export default function Home() {
                 Tell us what you're trying to build. We'll tell you if we can help.
               </p>
               <Link href="/contact">
-                <button className="bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] transition-colors cursor-pointer">
+                <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] cursor-pointer">
                   Get in touch
                 </button>
               </Link>

@@ -76,7 +76,7 @@ export default function Built() {
             Want us to build something like this for you?
           </h2>
           <Link href="/contact">
-            <button className="bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] transition-colors cursor-pointer">
+            <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] cursor-pointer">
               Get in touch
             </button>
           </Link>

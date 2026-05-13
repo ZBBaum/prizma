@@ -143,7 +143,7 @@ export function WebGLShader() {
     <canvas
       ref={canvasRef}
       className="fixed left-0 w-full h-full block -z-10"
-      style={{ top: '22vh' }}
+      style={{ top: '35vh' }}
     />
   )
 }

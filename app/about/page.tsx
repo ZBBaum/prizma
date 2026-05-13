@@ -111,7 +111,7 @@ export default function About() {
               .
             </p>
             <Link href="/contact">
-              <button className="bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] transition-colors cursor-pointer">
+              <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] cursor-pointer">
                 Talk to us about your AI project
               </button>
             </Link>
@@ -123,7 +123,7 @@ export default function About() {
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-[#0a0a0a] border-t border-black/10 dark:border-white/10 px-6 py-4 flex items-center justify-between transition-colors duration-300">
         <span className="text-sm font-bold text-black dark:text-white">Ready to talk?</span>
         <Link href="/contact">
-          <button className="bg-[#7C3AED] text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-[#6D28D9] transition-colors cursor-pointer">
+          <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-[#6D28D9] cursor-pointer">
             Get in touch
           </button>
         </Link>
