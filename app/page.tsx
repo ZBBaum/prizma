@@ -114,7 +114,7 @@ export default function Home() {
         <WebGLShader />
 
         {/* Logo + headline + CTA */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: '2vh' }}>
+        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: 0 }}>
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
@@ -142,7 +142,6 @@ export default function Home() {
             </button>
           </Link>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-36 pointer-events-none z-10 bg-gradient-to-b from-transparent to-white dark:to-[#0a0a0a]" />
       </section>
 
       <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
