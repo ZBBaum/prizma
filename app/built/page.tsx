@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Work | Prizma',
 }
 
-const SPECTRUM = 'linear-gradient(90deg, #7C3AED, #2563EB, #059669, #D97706, #EA580C, #E11D48)'
+const SPECTRUM = 'linear-gradient(90deg, #7B00D4, #1177EE, #22CC22, #FFD700, #FF7700, #EE1111)'
 
 function SpectrumDivider() {
   return <div style={{ height: '1px', background: SPECTRUM, opacity: 0.35 }} />

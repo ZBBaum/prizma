@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Prizma builds custom AI platforms for enterprises and growing companies, fast and at a fixed price.',
 }
 
-const SPECTRUM = 'linear-gradient(90deg, #7C3AED, #2563EB, #059669, #D97706, #EA580C, #E11D48)'
+const SPECTRUM = 'linear-gradient(90deg, #7B00D4, #1177EE, #22CC22, #FFD700, #FF7700, #EE1111)'
 
 const whatWeDo = [
   {
@@ -60,9 +60,9 @@ const steps = [
 ]
 
 const stats = [
-  { number: '1 Week', label: 'Average build time' },
-  { number: '$20k', label: 'Saved on first project' },
   { number: '5x', label: 'Faster than traditional firms' },
+  { number: '$20k', label: 'Saved on our first project' },
+  { number: '1 Week', label: 'Average build time' },
 ]
 
 const faqs = [
@@ -88,8 +88,8 @@ const faqs = [
   },
 ]
 
-function SpectrumDivider({ opacity = 0.35 }: { opacity?: number }) {
-  return <div style={{ height: '1px', background: SPECTRUM, opacity }} />
+function SpectrumDivider() {
+  return <div style={{ height: '1px', background: SPECTRUM }} />
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -151,9 +151,9 @@ export default function Home() {
 
         {/* Stats */}
         <div className="border-b border-black/10 dark:border-white/10">
-          <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 gap-6">
+          <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
             {stats.map((s) => (
-              <div key={s.number} className="flex flex-col items-center text-center">
+              <div key={s.number} className="flex flex-col items-center text-center px-6">
                 <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
                 <span className="text-xs font-medium text-[#555555] dark:text-[#999999] mt-1">{s.label}</span>
               </div>
@@ -171,10 +171,11 @@ export default function Home() {
               {whatWeDo.map((s) => (
                 <div
                   key={s.title}
-                  className="prizma-card p-6 hover:-translate-y-1 transition-all duration-300"
+                  className="prizma-card p-6 hover:-translate-y-1"
                   style={{
                     borderLeft: `2px solid ${s.accent}`,
                     '--card-glow': s.glow,
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   } as React.CSSProperties}
                 >
                   <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{s.title}</h3>
@@ -218,10 +219,11 @@ export default function Home() {
               {whatWeBuild.map((s) => (
                 <div
                   key={s.title}
-                  className="prizma-card p-6 hover:-translate-y-1 transition-all duration-300"
+                  className="prizma-card p-6 hover:-translate-y-1"
                   style={{
                     borderLeft: `2px solid ${s.accent}`,
                     '--card-glow': s.glow,
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   } as React.CSSProperties}
                 >
                   <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{s.title}</h3>

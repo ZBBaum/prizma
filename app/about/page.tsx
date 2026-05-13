@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Prizma is an AI consulting firm that helps companies in education, research, and enterprise actually put AI to work.',
 }
 
-const SPECTRUM = 'linear-gradient(90deg, #7C3AED, #2563EB, #059669, #D97706, #EA580C, #E11D48)'
+const SPECTRUM = 'linear-gradient(90deg, #7B00D4, #1177EE, #22CC22, #FFD700, #FF7700, #EE1111)'
 
 const values = [
   {
