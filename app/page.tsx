@@ -119,17 +119,17 @@ export default function Home() {
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
             className="block dark:hidden"
-            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginBottom: '15px' }}
+            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginTop: '30px', marginBottom: '15px' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
             className="hidden dark:block"
-            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginBottom: '15px' }}
+            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginTop: '30px', marginBottom: '15px' }}
           />
           <h1
             className="font-bold text-black dark:text-white leading-tight tracking-tight mb-4"
-            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3.5rem)', whiteSpace: 'nowrap' }}
+            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3.5rem)', whiteSpace: 'nowrap', marginTop: '-50px' }}
           >
             Enterprise Software. Without the wait.
           </h1>
