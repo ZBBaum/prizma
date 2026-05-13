@@ -6,7 +6,7 @@ import RotatingPrism from '@/components/RotatingPrism'
 
 export const metadata: Metadata = {
   title: 'Prizma | AI Consulting',
-  description: 'Prizma builds custom AI platforms for enterprises and growing companies in days, not months, at a fraction of the cost.',
+  description: 'Prizma builds custom AI platforms for enterprises and growing companies, fast and at a fixed price.',
 }
 
 const whatWeDo = [
@@ -47,14 +47,33 @@ const whatWeBuild = [
 
 const steps = [
   { num: '01', color: 'var(--prizma-violet)', title: 'Share the problem', body: 'Tell us what you need. A platform, a tool, an automation. The bigger the better.' },
-  { num: '02', color: 'var(--prizma-blue)', title: 'We build it', body: 'Using AI, we design and develop your platform in days, not months.' },
-  { num: '03', color: 'var(--prizma-green)', title: 'You launch it', body: 'Delivered fast, priced fairly, ready to use. No bloat, no delays, no surprises.' },
+  { num: '02', color: 'var(--prizma-blue)', title: 'We build it', body: 'Using AI, we design and develop your platform fast.' },
+  { num: '03', color: 'var(--prizma-green)', title: 'You launch it', body: 'Delivered fast, priced fairly, ready to use.' },
 ]
 
 const stats = [
   { number: '1 Week', label: 'Average build time' },
-  { number: '10x', label: 'Faster than traditional firms' },
-  { number: '$20k', label: 'Saved on our first project' },
+  { number: '$20k', label: 'Saved on first project' },
+  { number: '5x', label: 'Faster than traditional firms' },
+]
+
+const faqs = [
+  {
+    q: 'How fast do you actually build?',
+    a: 'Most projects are live within 1-2 weeks. Our first client needed an entire AI data platform and we delivered it in one day.',
+  },
+  {
+    q: 'What kind of projects do you take on?',
+    a: 'AI platforms, data infrastructure, automation tools, and custom software for enterprises and growing companies.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: 'We quote fixed prices upfront so you know exactly what you are paying before we start.',
+  },
+  {
+    q: 'What happens after I reach out?',
+    a: 'We respond within one business day, scope your project, and give you a fixed quote. If we are a fit, we start building immediately.',
+  },
 ]
 
 const dividerColors = [
@@ -83,7 +102,7 @@ export default function Home() {
       >
         <WebGLShader />
         <div className="relative z-10 flex flex-col flex-1 items-center px-6 text-center">
-          <div className="flex-1 flex flex-col items-center justify-center" style={{ transform: 'translateY(-100px)' }}>
+          <div className="flex-1 flex flex-col items-center justify-center" style={{ transform: 'translateY(-115px)' }}>
             <img
               src="/PrizmaLogoLight3.png?v=3"
               alt="Prizma"
@@ -96,11 +115,17 @@ export default function Home() {
               className="hidden dark:block"
               style={{ width: 'min(380px, 80vw)', height: 'auto', objectFit: 'contain' }}
             />
-            <p
-              className="text-lg font-medium text-[#333333] dark:text-[#cccccc]"
-              style={{ transform: 'translateY(-45px)', marginTop: '8px' }}
+            <h1
+              className="font-bold text-black dark:text-white leading-tight tracking-tight text-center"
+              style={{ transform: 'translateY(-45px)', marginTop: '16px', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
             >
-              We build custom AI platforms for organizations and growing companies, in a fraction of the time, for a fraction of the cost.
+              Enterprise Software. Without the wait.
+            </h1>
+            <p
+              className="text-base font-medium text-[#333333] dark:text-[#cccccc] max-w-xl text-center"
+              style={{ transform: 'translateY(-45px)', marginTop: '12px' }}
+            >
+              We build custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
             </p>
             <Link href="/contact" className="inline-flex" style={{ transform: 'translateY(-45px)', marginTop: '24px' }}>
               <button className="bg-black dark:bg-white text-white dark:text-black text-sm font-bold px-8 py-3 rounded-full hover:bg-violet-600 dark:hover:bg-violet-400 dark:hover:text-white transition-colors">
@@ -205,13 +230,32 @@ export default function Home() {
                 About Prizma
               </h2>
               <p className="text-lg font-normal text-[#333333] dark:text-[#cccccc] leading-relaxed max-w-2xl">
-                Prizma was built on a simple idea: the price of enterprise software just collapsed, but most organizations haven't realized it yet. We build in days what traditional firms take months to deliver, at a fraction of the cost. Founded by Zack Baum.
+                Prizma was built on a simple idea: great software should be fast to build and honest to price. We use AI to ship enterprise platforms in weeks, with a fixed quote upfront. Founded by Zack Baum.
               </p>
             </section>
           </FadeIn>
         </div>
 
         <Divider color={dividerColors[5]} />
+
+        {/* FAQ */}
+        <FadeIn>
+          <section className="max-w-5xl mx-auto px-6 py-12">
+            <h2 className="text-xs font-bold tracking-widest uppercase text-[#555555] dark:text-[#999999] mb-8">
+              FAQ
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              {faqs.map((faq) => (
+                <div key={faq.q}>
+                  <h3 className="text-base font-bold text-black dark:text-white mb-2">{faq.q}</h3>
+                  <p className="text-sm font-normal text-[#333333] dark:text-[#cccccc] leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </FadeIn>
+
+        <Divider color={dividerColors[0]} />
 
         {/* Contact CTA */}
         <FadeIn>
