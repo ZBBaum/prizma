@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { WebGLShader } from '@/components/ui/web-gl-shader'
+import { LiquidButton } from '@/components/ui/liquid-glass-button'
 import FadeIn from '@/components/FadeIn'
 import RotatingPrism from '@/components/RotatingPrism'
 
@@ -113,55 +114,70 @@ export default function Home() {
       >
         <WebGLShader />
 
-        {/* Logo + headline + CTA */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center" style={{ paddingTop: 0 }}>
+        {/* Logo + headline + CTA — sits at the top */}
+        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-10 md:pt-14">
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
-            className="block dark:hidden"
-            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginTop: '30px', marginBottom: '15px' }}
+            className="block dark:hidden mb-6"
+            style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
-            className="hidden dark:block"
-            style={{ width: 'min(416px, 82vw)', height: 'auto', objectFit: 'contain', marginTop: '30px', marginBottom: '15px' }}
+            className="hidden dark:block mb-6"
+            style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
           />
           <h1
-            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-4"
-            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3.5rem)', whiteSpace: 'nowrap', marginTop: '-50px' }}
+            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-3"
+            style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)', maxWidth: '720px' }}
           >
             Enterprise Software. Without the wait.
           </h1>
-          <p className="text-base text-[#444444] dark:text-[#bbbbbb] max-w-md mb-6">
+          <div style={{ height: '2px', width: '64px', background: SPECTRUM, borderRadius: '1px', marginBottom: '20px' }} />
+          <p className="text-base font-medium text-[#444444] dark:text-[#bbbbbb] max-w-lg mb-8">
             We build custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
           </p>
           <Link href="/contact">
-            <button className="bg-black dark:bg-white text-white dark:text-black text-sm font-bold px-8 py-3 rounded-full hover:bg-black/80 dark:hover:bg-gray-100 transition-colors cursor-pointer">
+            <LiquidButton size="lg" className="text-black dark:text-white font-bold">
               Tell us what you need
-            </button>
+            </LiquidButton>
           </Link>
+        </div>
+
+        {/* Scroll indicator — pushed to bottom */}
+        <div className="relative z-10 mt-auto pb-8 flex flex-col items-center gap-1 select-none">
+          <span className="text-[10px] font-bold tracking-widest uppercase text-black/30 dark:text-white/30">
+            Scroll
+          </span>
+          <svg
+            className="scroll-indicator text-black/30 dark:text-white/30"
+            width="14"
+            height="9"
+            viewBox="0 0 14 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
       </section>
 
-      <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+      <div className="bg-white dark:bg-black transition-colors duration-300">
 
         {/* Spectrum bar entering the content */}
-        <div style={{ height: '2px', background: SPECTRUM }} />
+        <div style={{ height: '1px', background: SPECTRUM }} />
 
         {/* Stats */}
-        <div className="border-b border-black/10 dark:border-white/10">
-          <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
-            {stats.map((s) => (
-              <div key={s.number} className="flex flex-col items-center text-center px-6">
-                <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
-                <span className="text-xs font-medium text-[#555555] dark:text-[#999999] mt-1">{s.label}</span>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
+          {stats.map((s) => (
+            <div key={s.number} className="flex flex-col items-center text-center px-6">
+              <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
+              <span className="text-xs font-medium text-[#555555] dark:text-[#999999] mt-1">{s.label}</span>
+            </div>
+          ))}
         </div>
-
-        <SpectrumDivider />
 
         {/* What we do */}
         <FadeIn>
@@ -171,11 +187,10 @@ export default function Home() {
               {whatWeDo.map((s) => (
                 <div
                   key={s.title}
-                  className="prizma-card p-6 hover:-translate-y-1"
+                  className="prizma-card p-6"
                   style={{
                     borderLeft: `2px solid ${s.accent}`,
                     '--card-glow': s.glow,
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   } as React.CSSProperties}
                 >
                   <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{s.title}</h3>
@@ -219,11 +234,10 @@ export default function Home() {
               {whatWeBuild.map((s) => (
                 <div
                   key={s.title}
-                  className="prizma-card p-6 hover:-translate-y-1"
+                  className="prizma-card p-6"
                   style={{
                     borderLeft: `2px solid ${s.accent}`,
                     '--card-glow': s.glow,
-                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   } as React.CSSProperties}
                 >
                   <h3 className="text-xl font-bold mb-3 text-black dark:text-white">{s.title}</h3>
@@ -243,7 +257,7 @@ export default function Home() {
             <section className="max-w-5xl mx-auto px-6 py-16 relative z-10">
               <SectionLabel>About Prizma</SectionLabel>
               <p className="text-xl text-[#333333] dark:text-[#cccccc] leading-relaxed max-w-2xl">
-                Prizma was built on a simple idea: great software should be fast to build and honest to price. We use AI to ship enterprise platforms in weeks, with a fixed quote upfront. Founded by Zack Baum.
+                Prizma was built on a simple idea: great software should be fast to build and honest to price. We use AI to ship enterprise platforms in weeks, with a fixed quote upfront.
               </p>
             </section>
           </FadeIn>
@@ -268,7 +282,7 @@ export default function Home() {
 
         {/* CTA */}
         <div>
-          <div style={{ height: '2px', background: SPECTRUM }} />
+          <div style={{ height: '1px', background: SPECTRUM }} />
           <FadeIn>
             <section className="max-w-5xl mx-auto px-6 py-20">
               <h2
@@ -281,9 +295,9 @@ export default function Home() {
                 Tell us what you're trying to build. We'll tell you if we can help.
               </p>
               <Link href="/contact">
-                <button className="prizma-btn bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] cursor-pointer">
+                <LiquidButton size="lg" className="text-black dark:text-white font-bold">
                   Get in touch
-                </button>
+                </LiquidButton>
               </Link>
             </section>
           </FadeIn>

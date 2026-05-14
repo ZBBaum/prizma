@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { LiquidButton } from '@/components/ui/liquid-glass-button'
 
 const SPECTRUM = 'linear-gradient(90deg, #7B00D4, #1177EE, #22CC22, #FFD700, #FF7700, #EE1111)'
 const TOPICS = ['Strategy', 'Build', 'Train', 'Other']
@@ -147,13 +148,14 @@ export default function Contact() {
               </div>
 
               <div>
-                <button
+                <LiquidButton
                   type="submit"
                   disabled={loading}
-                  className="bg-[#7C3AED] text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-[#6D28D9] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  size="lg"
+                  className="text-black dark:text-white font-bold"
                 >
                   {loading ? 'Sending…' : "Let's talk."}
-                </button>
+                </LiquidButton>
                 {error && (
                   <p className="mt-3 text-sm text-red-600 dark:text-red-400">{error}</p>
                 )}

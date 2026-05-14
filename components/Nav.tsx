@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ThemeToggle } from './ui/curtain-theme-toggle'
+import { LiquidButton } from './ui/liquid-glass-button'
 
 const SPECTRUM = 'linear-gradient(90deg, #7C3AED, #2563EB, #059669, #D97706, #EA580C, #E11D48)'
 
@@ -34,11 +35,10 @@ export default function Nav() {
           >
             Work
           </Link>
-          <Link
-            href="/contact"
-            className="text-sm font-bold bg-[#7C3AED] text-white px-5 py-2 rounded-full hover:bg-[#6D28D9] transition-colors"
-          >
-            Contact
+          <Link href="/contact">
+            <LiquidButton size="default" className="text-black dark:text-white font-bold">
+              Contact
+            </LiquidButton>
           </Link>
           <ThemeToggle variant="icon" buttonSize={34} />
         </div>

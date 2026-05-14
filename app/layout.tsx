@@ -4,6 +4,7 @@ import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
+import PrizmaBtnGlow from '@/components/PrizmaBtnGlow'
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <PrizmaBtnGlow />
         <ScrollToTop />
         <Nav />
         <main className="pt-24">{children}</main>

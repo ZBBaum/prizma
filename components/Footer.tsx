@@ -4,7 +4,7 @@ const SPECTRUM = 'linear-gradient(90deg, #7C3AED, #2563EB, #059669, #D97706, #EA
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+    <footer className="bg-white dark:bg-black transition-colors duration-300">
       <div style={{ height: '2px', background: SPECTRUM }} />
       <div className="max-w-5xl mx-auto px-6 py-8 flex items-center justify-between">
         <Link href="/" className="flex items-center no-underline">
