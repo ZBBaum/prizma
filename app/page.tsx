@@ -115,26 +115,25 @@ export default function Home() {
         <WebGLShader />
 
         {/* Logo + headline + CTA — sits at the top */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-2 md:pt-6">
+        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-6 md:pt-8">
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
-            className="block dark:hidden mb-6"
+            className="block dark:hidden mb-3"
             style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
           />
           <img
             src="/PrizmaLogoDark3.png?v=3"
             alt="Prizma"
-            className="hidden dark:block mb-6"
+            className="hidden dark:block mb-3"
             style={{ width: 'min(280px, 62vw)', height: 'auto', objectFit: 'contain' }}
           />
           <h1
-            className="font-bold text-black dark:text-white leading-tight tracking-tight mb-3"
-            style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)', maxWidth: '720px' }}
+            className="text-4xl md:text-5xl font-bold text-black dark:text-white leading-tight tracking-tight mb-4"
+            style={{ maxWidth: '720px' }}
           >
             Enterprise Software. Without the wait.
           </h1>
-          <div style={{ height: '2px', width: '64px', background: SPECTRUM, borderRadius: '1px', marginBottom: '20px' }} />
           <p className="text-base font-medium text-[#444444] dark:text-[#bbbbbb] max-w-lg mb-8">
             We build custom AI platforms for enterprises and growing companies, shipped fast at a fixed price.
           </p>
@@ -170,13 +169,15 @@ export default function Home() {
         <div style={{ height: '1px', background: SPECTRUM }} />
 
         {/* Stats */}
-        <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
-          {stats.map((s) => (
-            <div key={s.number} className="flex flex-col items-center text-center px-6">
-              <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">{s.label}</span>
-            </div>
-          ))}
+        <div className="bg-white dark:bg-black">
+          <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
+            {stats.map((s) => (
+              <div key={s.number} className="flex flex-col items-center text-center px-6">
+                <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
+                <span className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">{s.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* What we do */}
