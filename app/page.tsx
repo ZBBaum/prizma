@@ -144,6 +144,18 @@ export default function Home() {
           </Link>
         </div>
 
+        {/* Stats — above the shader, in front of it via z-10 */}
+        <div className="relative z-10 mt-12 px-6">
+          <div className="max-w-5xl mx-auto grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
+            {stats.map((s) => (
+              <div key={s.number} className="flex flex-col items-center text-center px-6">
+                <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
+                <span className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Scroll indicator — pushed to bottom */}
         <div className="relative z-10 mt-auto pb-8 flex flex-col items-center gap-1 select-none">
           <span className="text-[10px] font-bold tracking-widest uppercase text-black/30 dark:text-white/30">
@@ -167,18 +179,6 @@ export default function Home() {
 
         {/* Spectrum bar entering the content */}
         <div style={{ height: '1px', background: SPECTRUM }} />
-
-        {/* Stats */}
-        <div className="bg-white dark:bg-black">
-          <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-3 divide-x divide-black/10 dark:divide-white/10">
-            {stats.map((s) => (
-              <div key={s.number} className="flex flex-col items-center text-center px-6">
-                <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
-                <span className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* What we do */}
         <FadeIn>
