@@ -83,7 +83,7 @@ export function WebGLShader() {
     const handleResize = () => {
       if (!refs.renderer || !refs.uniforms) return
       const width = window.innerWidth
-      const height = window.innerHeight
+      const height = window.innerHeight + 60
       refs.renderer.setSize(width, height, false)
       refs.uniforms.resolution.value = [width, height]
     }
@@ -143,7 +143,7 @@ export function WebGLShader() {
     <canvas
       ref={canvasRef}
       className="fixed left-0 w-full h-full block -z-10"
-      style={{ top: '96px' }}
+      style={{ top: '70px' }}
     />
   )
 }

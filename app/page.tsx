@@ -115,7 +115,7 @@ export default function Home() {
         <WebGLShader />
 
         {/* Logo + headline + CTA — sits at the top */}
-        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-10 md:pt-14">
+        <div className="relative z-10 flex flex-col items-center px-6 text-center pt-2 md:pt-6">
           <img
             src="/PrizmaLogoLight3.png?v=3"
             alt="Prizma"
@@ -174,7 +174,7 @@ export default function Home() {
           {stats.map((s) => (
             <div key={s.number} className="flex flex-col items-center text-center px-6">
               <span className="text-3xl md:text-4xl font-bold text-black dark:text-white tabular-nums">{s.number}</span>
-              <span className="text-xs font-medium text-[#555555] dark:text-[#999999] mt-1">{s.label}</span>
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">{s.label}</span>
             </div>
           ))}
         </div>
