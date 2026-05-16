@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={figtree.className}>
+    <html lang="en" className={`${figtree.className} dark`}>
       <head>
         <link rel="icon" type="image/png" href="/PrizmaPrizm3.png" />
         <link rel="shortcut icon" href="/PrizmaPrizm3.png" />

@@ -1,10 +1,38 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
+
 export default function RotatingPrism() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div
+      ref={ref}
       className="absolute pointer-events-none select-none"
-      style={{ right: '-80px', top: '50%', transform: 'translateY(-50%)' }}
+      style={{
+        right: '-80px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 0.8s ease-out',
+      }}
       aria-hidden="true"
     >
       <svg

@@ -24,6 +24,9 @@ export function WebGLShader() {
 
     const canvas = canvasRef.current
     const { current: refs } = sceneRef
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     const vertexShader = `
       attribute vec3 position;
@@ -43,6 +46,7 @@ export function WebGLShader() {
 
       void main() {
         vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
+        p.x = -p.x;
 
         float d = length(p) * distortion;
 
@@ -54,9 +58,10 @@ export function WebGLShader() {
         float g = clamp(0.05 / abs(p.y + sin((gx + time) * xScale) * yScale), 0.0, 1.0);
         float b = clamp(0.05 / abs(p.y + sin((bx + time) * xScale) * yScale), 0.0, 1.0);
 
-        float lightR = 1.0 - max(0.0, g - r) - max(0.0, b - r);
-        float lightG = 1.0 - max(0.0, r - g) - max(0.0, b - g);
-        float lightB = 1.0 - max(0.0, r - b) - max(0.0, g - b);
+        float boost = 1.6;
+        float lightR = 1.0 - boost * max(0.0, g - r) - boost * max(0.0, b - r);
+        float lightG = 1.0 - boost * max(0.0, r - g) - boost * max(0.0, b - g);
+        float lightB = 1.0 - boost * max(0.0, r - b) - boost * max(0.0, g - b);
 
         float finalR = mix(lightR, r, isDark);
         float finalG = mix(lightG, g, isDark);
@@ -82,8 +87,10 @@ export function WebGLShader() {
 
     const handleResize = () => {
       if (!refs.renderer || !refs.uniforms) return
-      const width = window.innerWidth
-      const height = window.innerHeight + 60
+      const parent = canvas.parentElement
+      if (!parent) return
+      const width = parent.clientWidth
+      const height = parent.clientHeight
       refs.renderer.setSize(width, height, false)
       refs.uniforms.resolution.value = [width, height]
     }
@@ -124,7 +131,11 @@ export function WebGLShader() {
     refs.scene.add(refs.mesh)
 
     handleResize()
-    rafId = requestAnimationFrame(animate)
+    if (prefersReducedMotion) {
+      refs.renderer.render(refs.scene, refs.camera)
+    } else {
+      rafId = requestAnimationFrame(animate)
+    }
 
     window.addEventListener("resize", handleResize)
     darkObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
@@ -142,8 +153,7 @@ export function WebGLShader() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed left-0 w-full h-full block -z-10"
-      style={{ top: '70px' }}
+      className="absolute inset-0 w-full h-full block -z-10"
     />
   )
 }

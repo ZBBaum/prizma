@@ -15,16 +15,19 @@ const values = [
     title: 'Clarity over complexity',
     description: "AI is complicated enough. We cut through the noise and give you a clear picture of what matters and what doesn't.",
     accent: '#7C3AED',
+    glow: 'rgba(124,58,237,0.14)',
   },
   {
     title: 'Outcomes, not outputs',
     description: "We don't ship decks or demos. We measure success by what changes in your business.",
     accent: '#2563EB',
+    glow: 'rgba(37,99,235,0.14)',
   },
   {
     title: 'Honest by default',
     description: "If something won't work, we say so early. We'd rather lose a project than waste your time.",
     accent: '#059669',
+    glow: 'rgba(5,150,105,0.14)',
   },
 ]
 
@@ -92,8 +95,8 @@ export default function About() {
             {values.map((v) => (
               <div
                 key={v.title}
-                className="prizma-card p-6 hover:-translate-y-1 transition-all duration-200"
-                style={{ borderLeft: `2px solid ${v.accent}` }}
+                className="prizma-card p-6"
+                style={{ borderLeft: `2px solid ${v.accent}`, '--card-glow': v.glow } as React.CSSProperties}
               >
                 <h3 className="text-lg font-bold mb-3 text-black dark:text-white">{v.title}</h3>
                 <p className="text-sm text-[#444444] dark:text-[#aaaaaa] leading-relaxed">

@@ -1,15 +1,26 @@
 'use client'
 import { useEffect, useLayoutEffect, useRef } from 'react'
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 export default function FadeIn({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null)
+
+  const getTargets = (el: HTMLElement) => {
+    const grandchildren = Array.from(
+      el.querySelectorAll(':scope > * > *:not([class*="grid"]):not([class*="flex"]), :scope > * > [class*="grid"] > *, :scope > * > [class*="flex"] > *')
+    ) as HTMLElement[]
+    if (grandchildren.length > 0) return grandchildren
+    return Array.from(el.querySelectorAll(':scope > *')) as HTMLElement[]
+  }
 
   useLayoutEffect(() => {
     const el = ref.current
     if (!el) return
-    const targets = Array.from(
-      el.querySelectorAll(':scope > * > *:not([class*="grid"]):not([class*="flex"]), :scope > * > [class*="grid"] > *, :scope > * > [class*="flex"] > *')
-    ) as HTMLElement[]
+    if (prefersReducedMotion()) return
+    const targets = getTargets(el)
     targets.forEach((t) => {
       t.style.opacity = '0'
       t.style.transform = 'translateY(20px)'
@@ -21,9 +32,8 @@ export default function FadeIn({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const targets = Array.from(
-      el.querySelectorAll(':scope > * > *:not([class*="grid"]):not([class*="flex"]), :scope > * > [class*="grid"] > *, :scope > * > [class*="flex"] > *')
-    ) as HTMLElement[]
+    if (prefersReducedMotion()) return
+    const targets = getTargets(el)
 
     const reveal = () => {
       targets.forEach((t, i) => {
@@ -40,17 +50,13 @@ export default function FadeIn({ children }: { children: React.ReactNode }) {
           observer.unobserve(el)
         }
       },
-      { threshold: 0, rootMargin: '0px 0px 50px 0px' }
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' }
     )
 
     observer.observe(el)
 
-    // Fallback: reveal after 1.2s in case observer never fires
-    const fallback = setTimeout(reveal, 1200)
-
     return () => {
       observer.disconnect()
-      clearTimeout(fallback)
     }
   }, [])
 
